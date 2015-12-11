@@ -34,9 +34,9 @@ auth.fetchLastAuthCode({
 
 ### auth.fetchLastAuthCode(options, callback)
 
+Creates a new IMAP connection and returns the goard key it has found.
 * `options` - an object representing the configuration. Can be {}.
   * `username` (optional) - The username (login) whick key we are searching. Use this if you have multiple steam accounts on this email.
   * `type` (optional) - "web", "computer" or nothing. To filter what type of auth you need (web is also mobile).
 * `callback(key)`  - a function, getting the guard key as first argument.
   * `key` - The guard key. NULL if none has been found.
-Creates a new IMAP connection and returns the goard key it has found.
