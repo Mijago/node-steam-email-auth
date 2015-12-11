@@ -34,8 +34,6 @@ auth.fetchLastAuthCode({
 }, function (key) {
     console.log("Key: "+ key)
 });
-
-
 ```
 
 ## Methods
