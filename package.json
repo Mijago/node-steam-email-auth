@@ -1,0 +1,13 @@
+{
+  "name": "SteamEmailAuth",
+  "version": "0.0.1",
+  "description": "SteamEmailAuth",
+  "main": "app.js",
+  "author": {
+    "name": "Alexander",
+    "email": "coding.mijago+nodejs@gmail.com"
+  },
+  "dependencies": {
+    "imap": "0.8.16"
+  }
+}
