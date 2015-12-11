@@ -2,7 +2,6 @@
 require('util').inherits(SteamEmailAuth, require('events').EventEmitter);
 var Imap = require("imap");
 function SteamEmailAuth(options) {
-    var _this = this; // helpful linker
 
     this.options = options;
     
