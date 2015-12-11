@@ -3,7 +3,15 @@
 This is a nodejs package for steam email auth.
 It uses IMAP to fetch the latest emails and gives you the last key it could get.
 
-####Example Usage
+## Installation
+It is as easy as always:
+
+```
+npm install steam-email-auth
+```
+
+
+## Example Usage
 ```
 var auth = new SteamEmailAuth({
     user: 'user@gmail.com',
