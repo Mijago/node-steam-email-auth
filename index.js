@@ -42,7 +42,12 @@ SteamEmailAuth.prototype.fetchLastAuthCode = function (options, callback) {
                 ["SENTSINCE", date]
             ], function (err, results) {
                 var last = [results[results.length - 1]];
-
+                if (!last) {
+                    if (callback)
+                        callback() // return nothing
+                    return
+                }
+                    
                 var f = imap.fetch(last, {
                     bodies: 'TEXT' ,
                     markSeen: false
