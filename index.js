@@ -1,4 +1,4 @@
-﻿
+
 require('util').inherits(SteamEmailAuth, require('events').EventEmitter);
 var Imap = require("imap");
 function SteamEmailAuth(options) {
@@ -33,7 +33,7 @@ SteamEmailAuth.prototype.fetchLastAuthCode = function (options, callback) {
 
     imap.once('ready', function () {
         imap.openBox('INBOX', true, function (err, box) {
-            imap.search( [
+            imap.search( [  
                 //"UNSEEN", // Maybe this will help speeding up? But maybe we miss some mail :s 
                 ["FROM", "noreply@steampowered.com"],
                 ["SUBJECT", "Access from new" + type],
@@ -51,7 +51,10 @@ SteamEmailAuth.prototype.fetchLastAuthCode = function (options, callback) {
                     bodies: 'TEXT' ,
                     markSeen: false
                 });
+                var _sent = false;
                 f.on('message', function (msg, seqno) {
+                    if (_sent)
+                        return null;
                     msg.on('body', function (stream, info) {
                         var data = "";
                         stream.on('data', function (chunk) {
@@ -60,19 +63,28 @@ SteamEmailAuth.prototype.fetchLastAuthCode = function (options, callback) {
                         
                         stream.on('end', function () {
                             var pattern = /\<span style="font-size: 24px; color: #66c0f4; font-family: Arial, Helvetica, sans-serif; font-weight: bold;"\>([0-9A-Z]{5})\<\/span\>/;
-                            var match = data.match(pattern) || {};
-                            if (callback)
+                            var pattern2 = /\n([0-9A-Z]{5})\r\n/
+                            var match = data.match(pattern2) || data.match(pattern);
+                            
+                            if (match && callback) {
                                 callback(match[1]);
+                                _sent = true;
+                            }
                         });
                     });
                 });
                 
                 f.once('error', function (err) {
                     console.log('IMAP Fetch error: ' + err);
+                    
+                    if (!_sent)
+                        return callback();
                 });
                 f.once('end', function () {
                     imap.closeBox(function () {
-                        imap.end();                       
+                        imap.end();
+                        if (!_sent)
+                           return callback();               
                     });
                 });
             });
