@@ -3,7 +3,7 @@
 This is a nodejs package for steam email auth.
 It uses IMAP to fetch the latest emails and gives you the last key it could get.
 
-This fork has been updated to support the new email format steam uses (URL verification instead of code).
+This fork has been updated to support the new email format steam uses (URL verification instead of code).  
 The previous is depreciated.
 
 ## Installation
