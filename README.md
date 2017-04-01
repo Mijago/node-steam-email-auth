@@ -6,11 +6,8 @@ It uses IMAP to fetch the latest emails and gives you the last key it could get.
 This fork has been updated to support the new email format steam uses (URL verification instead of code).
 
 ## Installation
-It is as easy as always:
 
-```
-npm install steam-email-auth
-```
+Install is to clone this fork, unless the main npm package gets updated.
 
 A reminder you may need to allow gmail for 'insecure apps' and possibly login to the account on the same IP in a browser for it to work.
 
