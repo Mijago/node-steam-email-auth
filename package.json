@@ -1,18 +1,18 @@
 {
   "name": "steam-email-auth",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "steam-email-auth",
   "main": "index.js",
-  "author": "Mijago <coding.mijago+nodejs@gmail.com>",
+  "author": "jfx <notemail@jfx.space>",
   "dependencies": {
-    "imap": "0.8.16"
+    "imap": "^0.8.16"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Mijago/node-steam-email-auth.git"
+    "url": "git+https://github.com/itsjfx/node-steam-email-auth.git"
   },
   "keywords": [
     "steam",
@@ -21,7 +21,7 @@
   ],
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mijago/node-steam-email-auth/issues"
+    "url": "https://github.com/itsjfx/node-steam-email-auth/issues"
   },
-  "homepage": "https://github.com/Mijago/node-steam-email-auth#readme"
+  "homepage": "https://github.com/itsjfx/node-steam-email-auth#readme"
 }
